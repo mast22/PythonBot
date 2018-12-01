@@ -39,10 +39,9 @@ def participants_handler(m):
 
 @bot.message_handler(func=lambda m: m.text == organisers)
 def organisers_handler(m):
-    # bot.send_contact(cid, '+79093081080', 'Ксения', 'Башлай')
-    # bot.send_contact(cid, '+79534067497', 'Хафизова', 'Зарина')
     cid = str(m.chat.id)
-    bot.send_message(cid, organisers, reply_markup=main_menu_markup)
+    bot.send_contact(cid, '+79093081080', 'Ксения', 'Башлай')
+    bot.send_contact(cid, '+79534067497', 'Хафизова', 'Зарина')
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
