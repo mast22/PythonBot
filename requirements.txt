@@ -1,0 +1,2 @@
+pyTelegramBotAPI==3.6.6
+tinydb==3.12.1
