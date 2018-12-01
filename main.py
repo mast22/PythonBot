@@ -1,10 +1,10 @@
 import telebot
 import os
+import const
 
 token = os.environ.get('TOKEN')
 
 bot = telebot.TeleBot(token)
-
 
 time_table = 'Расписание'
 location = 'Местоположение'
@@ -23,7 +23,7 @@ def start_handler(m):
 @bot.message_handler(func=lambda m: m.text == time_table)
 def time_table_handler(m):
     cid = str(m.chat.id)
-    bot.send_message(cid, time_table, reply_markup=main_menu_markup)
+    bot.send_message(cid, const.time_table_text_1, reply_markup=main_menu_markup)
 
 @bot.message_handler(func=lambda m: m.text == location)
 def location_handler(m):
