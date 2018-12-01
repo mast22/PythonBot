@@ -23,7 +23,8 @@ def start_handler(m):
 @bot.message_handler(func=lambda m: m.text == time_table)
 def time_table_handler(m):
     cid = str(m.chat.id)
-    bot.send_message(cid, const.time_table_text_1, reply_markup=main_menu_markup, parse_mode='HTML')
+    bot.send_message(cid, const.time_table_text_1, parse_mode='HTML')
+    bot.send_message(cid, const.time_table_text_2, reply_markup=main_menu_markup, parse_mode='HTML')
 
 @bot.message_handler(func=lambda m: m.text == location)
 def location_handler(m):
