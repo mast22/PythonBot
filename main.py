@@ -18,7 +18,7 @@ main_menu_markup.row(participants, organisers)
 @bot.message_handler(commands=['start'])
 def start_handler(m):
     cid = str(m.chat.id)
-    bot.send_message(cid, 'Welcome', reply_markup=main_menu_markup)
+    bot.send_message(cid, const.greeting, reply_markup=main_menu_markup)
 
 @bot.message_handler(func=lambda m: m.text == time_table)
 def time_table_handler(m):
