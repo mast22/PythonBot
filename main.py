@@ -3,6 +3,9 @@ import os
 
 token = os.environ.get('TOKEN')
 
+bot = telebot.TeleBot(token)
+
+
 time_table = 'Расписание'
 location = 'Местоположение'
 participants = 'Участники'
