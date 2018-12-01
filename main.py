@@ -47,5 +47,9 @@ def organisers_handler(m):
     bot.send_message(cid, 'Разработчик бота')
     bot.send_contact(cid, '+79991568802', 'Николай')
 
+@bot.message_handler()
+def else_handler(m):
+    bot.send_message(m.chat.id, 'Пожалуйста, используйте клавиатуру', reply_markup=main_menu_markup)
+
 if __name__ == '__main__':
     bot.polling(none_stop=True)
