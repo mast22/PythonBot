@@ -1,5 +1,4 @@
 import telebot
-from tinydb import TinyDB, Query
 import os
 
 token = os.environ.get('TOKEN')
@@ -21,22 +20,22 @@ def start_handler(m):
 @bot.message_handler(func=lambda m: m.text == time_table)
 def time_table_handler(m):
     cid = str(m.chat.id)
-    bot.send_message(cid, time_table)
+    bot.send_message(cid, time_table, reply_markup=main_menu_markup)
 
 @bot.message_handler(func=lambda m: m.text == location)
 def location_handler(m):
     cid = str(m.chat.id)
-    bot.send_message(cid, location)
+    bot.send_message(cid, location, reply_markup=main_menu_markup)
 
 @bot.message_handler(func=lambda m: m.text == participants)
 def participants_handler(m):
     cid = str(m.chat.id)
-    bot.send_message(cid, participants)
+    bot.send_message(cid, participants, reply_markup=main_menu_markup)
 
 @bot.message_handler(func=lambda m: m.text == organisers)
 def organisers_handler(m):
     cid = str(m.chat.id)
-    bot.send_message(cid, organisers)
+    bot.send_message(cid, organisers, reply_markup=main_menu_markup)
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
