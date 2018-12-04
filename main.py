@@ -10,8 +10,10 @@ time_table = 'Расписание'
 about = 'О мероприятии'
 participants = 'Участники'
 organisers = 'Организаторы'
+register = 'Регистрация'
 
 main_menu_markup = telebot.types.ReplyKeyboardMarkup(True)
+main_menu_markup.row(register)
 main_menu_markup.row(time_table, about)
 main_menu_markup.row(participants, organisers)
 
@@ -19,6 +21,12 @@ main_menu_markup.row(participants, organisers)
 def start_handler(m):
     cid = str(m.chat.id)
     bot.send_message(cid, const.greeting, reply_markup=main_menu_markup)
+
+@bot.message_handler(func=lambda m: m.text == register)
+def register_handler(m):
+    cid = str(m.chat.id)
+    bot.send_message(cid, const.register)
+    bot.send_message(cid, const.register_link, reply_markup=main_menu_markup)
 
 @bot.message_handler(func=lambda m: m.text == time_table)
 def time_table_handler(m):
@@ -40,12 +48,14 @@ def participants_handler(m):
 @bot.message_handler(func=lambda m: m.text == organisers)
 def organisers_handler(m):
     cid = str(m.chat.id)
-    bot.send_message(cid, 'Руководитель')
-    bot.send_contact(cid, '+79093081080', 'Ксения', 'Башлай')
-    bot.send_message(cid, 'Заместитель руководителя')
-    bot.send_contact(cid, '+79534067497', 'Хафизова', 'Зарина')
-    bot.send_message(cid, 'Разработчик бота')
-    bot.send_contact(cid, '+79991568802', 'Николай')
+    bot.send_message(cid, const.organisers)
+    bot.send_message(cid, const.contacts, reply_markup=main_menu_markup)
+    # bot.send_message(cid, 'Руководитель')
+    # bot.send_contact(cid, '+79093081080', 'Ксения', 'Башлай')
+    # bot.send_message(cid, 'Заместитель руководителя')
+    # bot.send_contact(cid, '+79534067497', 'Хафизова', 'Зарина')
+    # bot.send_message(cid, 'Разработчик бота')
+    # bot.send_contact(cid, '+79991568802', 'Николай')
 
 @bot.message_handler()
 def else_handler(m):
