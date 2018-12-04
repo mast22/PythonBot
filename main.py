@@ -43,7 +43,7 @@ def about_handler(m):
 @bot.message_handler(func=lambda m: m.text == participants)
 def participants_handler(m):
     cid = str(m.chat.id)
-    bot.send_message(cid, participants, reply_markup=main_menu_markup)
+    bot.send_message(cid, const.participants, reply_markup=main_menu_markup)
 
 @bot.message_handler(func=lambda m: m.text == organisers)
 def organisers_handler(m):
