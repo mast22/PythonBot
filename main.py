@@ -50,16 +50,13 @@ def organisers_handler(m):
     cid = str(m.chat.id)
     bot.send_message(cid, const.organisers)
     bot.send_message(cid, const.contacts, reply_markup=main_menu_markup)
-    # bot.send_message(cid, 'Руководитель')
-    # bot.send_contact(cid, '+79093081080', 'Ксения', 'Башлай')
-    # bot.send_message(cid, 'Заместитель руководителя')
-    # bot.send_contact(cid, '+79534067497', 'Хафизова', 'Зарина')
-    # bot.send_message(cid, 'Разработчик бота')
-    # bot.send_contact(cid, '+79991568802', 'Николай')
 
 @bot.message_handler()
 def else_handler(m):
     bot.send_message(m.chat.id, 'Пожалуйста, используйте клавиатуру', reply_markup=main_menu_markup)
 
-if __name__ == '__main__':
-    bot.polling(none_stop=True)
+while True:
+    try:
+        bot.polling(none_stop=True)
+    except Exception as err:
+        time.sleep(5)
