@@ -34,8 +34,8 @@ def start_handler(m):
             {
                 'cid': cid,
                 'date': '{} {}:{}'.format(t.day, t.hour, t.minute),
-                'username': m.from_user.username,
-                'first_name': m.from_user.first_name or 'without name'
+                'username': m.from_user.username or 'without username',
+                'first_name': m.from_user.first_name
             }
         ) 
 
