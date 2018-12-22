@@ -83,9 +83,5 @@ def logs_handler(m):
 def else_handler(m):
     bot.send_message(m.chat.id, 'Пожалуйста, используйте клавиатуру', reply_markup=main_menu_markup)
 
-while True:
-    try:
-        bot.polling(none_stop=True)
-    except Exception as err:
-        print(err)
-        time.sleep(2)
+
+bot.polling(none_stop=True)
