@@ -26,7 +26,7 @@ main_menu_markup.row(PARTICIPANTS, ORGANISERS)
 @bot.message_handler(commands=['start'])
 def start_handler(m):
     cid = str(m.chat.id)
-    bot.send_message(cid, const.greeting, reply_markup=main_menu_markup)
+    bot.send_message(cid, const.GREETING, reply_markup=main_menu_markup)
     User = Query()
     t = datetime.datetime.now()
     if not db.get(User.cid == cid):
@@ -42,31 +42,31 @@ def start_handler(m):
 @bot.message_handler(func=lambda m: m.text == REGISTER)
 def register_handler(m):
     cid = str(m.chat.id)
-    bot.send_message(cid, const.register)
-    bot.send_message(cid, const.register_link, reply_markup=main_menu_markup)
+    bot.send_message(cid, const.REGISTER)
+    bot.send_message(cid, const.REGISTER_LINK, reply_markup=main_menu_markup)
 
 @bot.message_handler(func=lambda m: m.text == TIME_TABLE)
 def time_table_handler(m):
     cid = str(m.chat.id)
-    bot.send_message(cid, const.time_table_text_1, parse_mode='HTML')
-    bot.send_message(cid, const.time_table_text_2, reply_markup=main_menu_markup, parse_mode='HTML')
+    bot.send_message(cid, const.TIME_TABLE_TEXT_1, parse_mode='HTML')
+    bot.send_message(cid, const.TIME_TABLE_TEXT_2, reply_markup=main_menu_markup, parse_mode='HTML')
 
 @bot.message_handler(func=lambda m: m.text == ABOUT)
 def about_handler(m):
     cid = str(m.chat.id)
-    bot.send_message(cid, const.about, reply_markup=main_menu_markup)
-    bot.send_location(cid, const.loc_lat, const.loc_long)
+    bot.send_message(cid, const.ABOUT, reply_markup=main_menu_markup)
+    bot.send_location(cid, const.LOC_LAT, const.LOC_LONG)
 
 @bot.message_handler(func=lambda m: m.text == PARTICIPANTS)
 def participants_handler(m):
     cid = str(m.chat.id)
-    bot.send_message(cid, const.participants, reply_markup=main_menu_markup)
+    bot.send_message(cid, const.PARTICIPANTS, reply_markup=main_menu_markup)
 
 @bot.message_handler(func=lambda m: m.text == ORGANISERS)
 def organisers_handler(m):
     cid = str(m.chat.id)
-    bot.send_message(cid, const.organisers)
-    bot.send_message(cid, const.contacts, reply_markup=main_menu_markup)
+    bot.send_message(cid, const.ORGANISERS)
+    bot.send_message(cid, const.CONTACTS, reply_markup=main_menu_markup)
 
 @bot.message_handler(func=lambda m: m.text == 'get_logs')
 def logs_handler(m):
