@@ -18,6 +18,9 @@ def start_handler(m):
     bot.send_message(cid, GREETING, reply_markup=main_menu_markup)
     User = Query()
     t = datetime.datetime.now()
+    """
+    Add new user to tinyDB
+    """
     if not db.get(User.cid == cid):
         db.insert(
             {
@@ -27,6 +30,10 @@ def start_handler(m):
                 'first_name': m.from_user.first_name
             }
         ) 
+
+"""
+Handlers for user messages
+"""
 
 @bot.message_handler(func=lambda m: m.text == REGISTER)
 def register_handler(m):
@@ -59,6 +66,9 @@ def organisers_handler(m):
 
 @bot.message_handler(func=lambda m: m.text == 'get_logs')
 def logs_handler(m):
+    """
+    Request users info from db
+    """
     cid = str(m.chat.id)
     users = db.all()
     message = ''
