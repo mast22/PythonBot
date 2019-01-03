@@ -12,17 +12,6 @@ token = os.environ.get('TOKEN')
 
 bot = telebot.TeleBot(token)
 
-TIME_TABLE = 'Расписание'
-ABOUT = 'О мероприятии'
-PARTICIPANTS = 'Участники'
-ORGANISERS = 'Организаторы'
-REGISTER = 'Регистрация'
-
-main_menu_markup = telebot.types.ReplyKeyboardMarkup(True)
-main_menu_markup.row(REGISTER)
-main_menu_markup.row(TIME_TABLE, ABOUT)
-main_menu_markup.row(PARTICIPANTS, ORGANISERS)
-
 @bot.message_handler(commands=['start'])
 def start_handler(m):
     cid = str(m.chat.id)

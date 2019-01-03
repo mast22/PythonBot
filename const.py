@@ -1,3 +1,14 @@
+TIME_TABLE = 'Расписание'
+ABOUT = 'О мероприятии'
+PARTICIPANTS = 'Участники'
+ORGANISERS = 'Организаторы'
+REGISTER = 'Регистрация'
+
+main_menu_markup = telebot.types.ReplyKeyboardMarkup(True)
+main_menu_markup.row(REGISTER)
+main_menu_markup.row(TIME_TABLE, ABOUT)
+main_menu_markup.row(PARTICIPANTS, ORGANISERS)
+
 GREETING = 'Здравствуйте! Вас приветствует бот. У меня вы можете подробнее узнать о событии ' \
 '«Дни Татарстано-Китайского молодежного предпринимательства» в городе Казань.'
 
